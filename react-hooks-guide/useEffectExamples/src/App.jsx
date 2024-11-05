@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import React from "react";
+import axios from "axios";
 
 export default function App() {
   const [page, setPage] = useState("");
@@ -37,11 +37,15 @@ export default function App() {
     async function fetchData() {
       if (page) {
         try {
-          const response = await fetch(
+          // const response = await fetch(
+          //   `https://jsonplaceholder.typicode.com/${page}`
+          // );
+          // const data = await response.json();
+          // setData(data);
+          const response = await axios.get(
             `https://jsonplaceholder.typicode.com/${page}`
           );
-          const data = await response.json();
-          setData(data);
+          setData(response.data);
         } catch (error) {
           console.error(error);
         }
