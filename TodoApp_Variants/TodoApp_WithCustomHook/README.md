@@ -1,8 +1,16 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# TodoApp_WithCustomHook 🧑‍💻📋
 
-Currently, two official plugins are available:
+This Todo app variant uses a **Custom Hook** to manage the state and behavior of tasks. It allows you to perform CRUD operations such as:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Add** a new todo item ✍️
+- **Edit** existing tasks ✏️
+- **Delete** tasks 🗑️
+
+### Features:
+- Custom hook to handle task management logic.
+- State management and validation done within the hook.
+- Easy-to-understand and reusable code structure.
+
+Use this app to see how **Custom Hooks** can simplify the management of state and business logic.
+

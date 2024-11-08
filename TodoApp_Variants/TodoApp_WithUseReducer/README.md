@@ -1,8 +1,15 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# TodoApp_WithUseReducer 🔄📜
 
-Currently, two official plugins are available:
+This Todo app variant uses **useReducer** for managing the state of tasks. Similar to **useState**, but better suited for complex state logic. CRUD operations are handled as follows:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Add** a new todo item ✍️
+- **Edit** tasks ✏️
+- **Delete** tasks 🗑️
+
+### Features:
+- **useReducer** for managing complex state transitions.
+- Better structure for handling actions in large applications.
+
+Explore how **useReducer** can help manage more complex state logic in React applications.
+
