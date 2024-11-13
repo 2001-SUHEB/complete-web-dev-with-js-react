@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping List - Study Material</title>
+    <style>
+        /* General page styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Container for the shopping list */
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        /* Title of the shopping list */
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        /* Styling for the unordered list */
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        /* Styling for each shopping item */
+        li {
+            background-color: #e2e2e2;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Odd numbered items have different background color */
+        li:nth-child(odd) {
+            background-color: #d1d1d1;
+        }
+
+        /* Class for the item name */
+        .item-name {
+            flex-grow: 1;
+        }
+
+        /* Styling for the delete button (if any) */
+        .delete-btn {
+            background-color: #ff4d4d;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Form inputs styling */
+        input {
+            margin-top: 10px;
+            width: 100%;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        /* Info section styling */
+        #info {
+            font-size: 14px;
+            color: #333;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Shopping List</h1>
+
+        <!-- Unordered list to hold shopping items -->
+        <ul id="list">
+            <li>
+                <span class="item-name" id="milk">Milk</span>
+            </li>
+            <li>
+                <span class="item-name" id="bread">Bread</span>
+            </li>
+            <li>
+                <span class="item-name" id="eggs">Eggs</span>
+            </li>
+        </ul>
+        <!-- Information section where clicked item name will be displayed -->
+        <p id="info"></p>
+
+        <!-- Form inputs to capture additional information -->
+        <div class="form">
+            <input type="text" id="name" data-uppercase>
+            <input type="text" id="pan">
+            <input type="text" id="fathername">
+        </div>
+    </div>
+
+    <script>
+        // Event Delegation for Shopping List Item Click
+        // This is an efficient way to manage events for a list with many items.
+        // Instead of adding individual event listeners for each item, we use event delegation on the parent element (ul)
+        const list = document.getElementById("list");
+        list.addEventListener("click", (e) => {
+            // Accessing the 'id' of the clicked element
+            const data = e.target.id;
+
+            // Finding the info paragraph to display the clicked item name
+            const info = document.querySelector("#info");
+
+            // Displaying the name of the item clicked
+            info.innerHTML = `You clicked on: ${data}`;
+        });
+
+        // Form Event Handling: Convert Text to Uppercase
+        // Using event delegation to handle input keyup event.
+        // The 'data-uppercase' attribute triggers text conversion to uppercase for the input field.
+        const form = document.querySelector(".form");
+        form.addEventListener("keyup", (e) => {
+            // Check if the input field has 'data-uppercase' attribute
+            if (e.target.dataset.uppercase !== undefined) {
+                // If the attribute exists, convert the input value to uppercase
+                e.target.value = e.target.value.toUpperCase();
+            }
+        });
+    </script>
+</body>
+
+</html>
