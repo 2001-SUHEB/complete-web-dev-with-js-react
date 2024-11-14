@@ -46,6 +46,20 @@ function area(length) {
 // Using the curried `area` function:
 area(4)(4); // Output: 16 (4 * 4)
 
+//amazon interview question on function currying
+
+function sum(a) {
+  return function (b) {
+    if (b) {
+      return sum(a + b);
+    } else {
+      return a;
+    }
+  };
+}
+
+console.log(sum(1)(2)(3)(4)());
+
 // Summary:
 // - `bind()` allows us to create a new function with preset arguments,
 //   which is useful for creating specific variations of a function.

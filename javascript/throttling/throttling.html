@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Throttling Study Material</title>
+    <style>
+        /* Reset basic margins and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; /* Ensures padding and borders don't increase element size */
+        }
+
+        /* Body styling */
+        body {
+            font-family: Arial, sans-serif; /* Sets a modern, readable font */
+            background-color: #f5f5f5; /* Light background for readability */
+            color: #333; /* Dark text for contrast */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centers content horizontally */
+            padding: 50px 20px; /* Adds padding around content */
+        }
+
+        /* Heading styling */
+        h1 {
+            font-size: 2rem; /* Large font size for the main heading */
+            color: #0056b3; /* Primary color for emphasis */
+            margin-bottom: 20px; /* Spacing between heading and other elements */
+            text-transform: uppercase; /* Uppercase for a bold, educational look */
+        }
+
+        /* Styling for instructional paragraph */
+        p {
+            font-size: 1rem; /* Sets readable font size */
+            max-width: 600px; /* Limits width for better readability */
+            margin-bottom: 20px; /* Space after paragraph */
+            line-height: 1.6; /* Improves readability */
+            text-align: center; /* Centers the text */
+        }
+
+        /* Footer styling */
+        footer {
+            margin-top: 40px; /* Adds space at the bottom */
+            font-size: 0.9rem; /* Slightly smaller text */
+            color: #666; /* Subtle color for less emphasis */
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Throttling Study Material</h1>
+    <p>
+        This page demonstrates a throttling function applied to the <code>resize</code> event. Open the developer tools 
+        (<strong>F12</strong> or <strong>Ctrl+Shift+I</strong> on most browsers), go to the <strong>Console</strong> tab, 
+        and resize the window to observe the throttling effect. The "resizing" message will log only once every 3000 milliseconds, 
+        even if the resize event fires frequently.
+    </p>
+
+    <script>
+        // Initialize throttling on window resize event
+        const Throttling = convertToThrottling(expensive, 3000);
+        window.addEventListener("resize", Throttling);
+
+        let count = 0;
+        
+        // Function to simulate a resource-intensive operation
+        function expensive() {
+            console.log("resizing", count++);
+        }
+
+        // Throttling function to limit calls to 'exp' every 'limit' ms
+        function convertToThrottling(exp, limit) {
+            let flag = true; // Control flag to manage throttling
+            return function () {
+                let context = this;
+                let args = arguments; // Capture arguments to pass to 'exp'
+                if (flag) {
+                    exp.apply(context, args); // Execute 'exp' with the current context and arguments
+                    flag = false; // Set flag to false to prevent immediate subsequent calls
+                    setTimeout(() => {
+                        flag = true; // Reset flag after 'limit' ms to allow next call
+                    }, limit);
+                }
+            };
+        }
+    </script>
+
+    <footer>Note: This example is useful for understanding how throttling helps optimize performance by limiting the rate of function calls.</footer>
+</body>
+
+</html>

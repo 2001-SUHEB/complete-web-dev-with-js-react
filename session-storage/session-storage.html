@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sessionStorage Study Material</title>
+    <style>
+        /* General reset for all elements */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styling to center content */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 40px;
+        }
+
+        /* Heading styling for the study material */
+        h1 {
+            font-size: 2.5rem;
+            color: #333;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Container for buttons with flexbox for better alignment */
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            /* Space between buttons */
+        }
+
+        /* Button styling for interactive elements */
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        /* Styling the instructions and additional info section */
+        .instructions {
+            margin-top: 30px;
+            font-size: 1rem;
+            color: #333;
+            text-align: center;
+            padding: 10px;
+            max-width: 600px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .instructions p {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Main heading for study material -->
+    <h1>sessionStorage Study Material</h1>
+
+    <!-- Container for interactive buttons -->
+    <div class="button-container">
+        <button onclick="setSessionData()">Set Session Data</button>
+        <button onclick="getSessionData()">Get Session Data</button>
+        <button onclick="removeSessionData()">Remove Session Data</button>
+        <button onclick="clearAllSessionData()">Clear All Session Data</button>
+        <button onclick="getSessionKeyByIndex()">Get Key by Index</button>
+    </div>
+
+    <!-- Instructions for the user -->
+    <div class="instructions">
+        <p><strong>Instructions:</strong></p>
+        <p>Click the buttons above to interact with the sessionStorage.</p>
+        <p>To view how sessionStorage works, open DevTools (right-click &gt; Inspect or F12), go to the
+            <strong>Application</strong> tab, and look under the <strong>Storage</strong> section on the left side to
+            see the sessionStorage contents.</p>
+    </div>
+
+    <script>
+        // Set some data in sessionStorage
+        function setSessionData() {
+            sessionStorage.setItem("sessionId", "12345");
+            sessionStorage.setItem("sessionName", "sessionUser");
+            console.log("Session data set!");
+        }
+
+        // Get data from sessionStorage
+        function getSessionData() {
+            const sessionId = sessionStorage.getItem("sessionId");
+            const sessionName = sessionStorage.getItem("sessionName");
+            console.log("Session ID:", sessionId);
+            console.log("Session Name:", sessionName);
+        }
+
+        // Remove a specific item from sessionStorage
+        function removeSessionData() {
+            sessionStorage.removeItem("sessionId");
+            console.log("Session ID removed!");
+        }
+
+        // Clear all sessionStorage data
+        function clearAllSessionData() {
+            sessionStorage.clear();
+            console.log("All session data cleared!");
+        }
+
+        // Get a key from sessionStorage by index
+        function getSessionKeyByIndex() {
+            const key = sessionStorage.key(0); // Get the first key
+            console.log("Key at index 0:", key);
+        }
+    </script>
+</body>
+
+</html>

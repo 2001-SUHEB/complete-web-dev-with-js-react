@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debouncing Study Material</title>
+    <style>
+        /* Basic reset for all elements */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; /* Ensures padding and borders don't affect element size */
+        }
+
+        /* Body styling */
+        body {
+            font-family: Arial, sans-serif; /* Modern font for readability */
+            background-color: #f5f5f5; /* Light background */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centers content horizontally */
+            padding-top: 50px; /* Space from top */
+        }
+
+        /* Heading styling */
+        h1 {
+            font-size: 2rem; /* Large font size for heading */
+            color: #333; /* Dark gray color for readability */
+            margin-bottom: 20px; /* Space between heading and input */
+            font-weight: 700; /* Bold heading */
+            text-transform: uppercase; /* Uppercase style for study material look */
+        }
+
+        /* Instruction paragraph styling */
+        p {
+            font-size: 1rem; /* Standard readable font size */
+            max-width: 600px; /* Limits width for easier reading */
+            text-align: center; /* Center-align text */
+            line-height: 1.6; /* Increases readability */
+            color: #555; /* Softer gray for paragraph text */
+            margin-bottom: 20px; /* Space between paragraph and input */
+        }
+
+        /* Input field styling */
+        input[type="text"] {
+            width: 300px; /* Input width */
+            padding: 10px; /* Padding for better click area */
+            font-size: 1rem; /* Font size for text input */
+            border: 2px solid #ddd; /* Light gray border */
+            border-radius: 5px; /* Rounded corners */
+            outline: none; /* Removes default outline */
+            transition: border-color 0.3s ease; /* Smooth border color transition on focus */
+        }
+
+        /* Input focus effect */
+        input[type="text"]:focus {
+            border-color: #007bff; /* Blue border color on focus */
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.2); /* Subtle shadow effect */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Heading to identify the topic -->
+    <h1>Debouncing Study Material</h1>
+    
+    <!-- Explanation for users -->
+    <p>
+        This page demonstrates debouncing, a technique to limit the rate at which a function is called. 
+        Type in the input field below and observe the console to see the debounced function in action. 
+        Open the developer tools (<strong>F12</strong> or <strong>Ctrl+Shift+I</strong>) and monitor 
+        the <strong>Console</strong> tab to view "Fetching data..." messages only after you've stopped typing.
+    </p>
+    
+    <!-- Input field to test the debouncing effect -->
+    <input type="text" placeholder="Type to see debouncing in action" onkeyup="debouncing()">
+
+    <script>
+        let counter = 0;
+
+        // Function to simulate data fetching process
+        function getData() {
+            console.log("Fetching data...", counter++); // Logs "Fetching data..." with a counter value
+        }
+
+        // Debounce function: limits how often 'getData' is executed
+        function convertTodebouncing(getData, delay) {
+            let timer; // Variable to store the timer reference
+            return function () {
+                let context = this; // Preserve the context (the calling object)
+                let args = arguments; // Capture any arguments passed to this function
+                clearTimeout(timer); // Clears previous timer to reset the delay
+                timer = setTimeout(() => {
+                    getData.apply(context, args); // Calls 'getData' with preserved context and arguments after delay
+                }, delay);
+            }
+        }
+
+        // Create a debounced version of 'getData' with a delay of 300ms
+        const debouncing = convertTodebouncing(getData, 300);
+    </script>
+</body>
+
+</html>
