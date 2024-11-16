@@ -20,8 +20,6 @@ This repository is your guide to mastering frontend development with **JavaScrip
 
 ## 💬 Contributing
 
-
-
 Feel free to open issues or submit pull requests to improve this repo. Contributions are always welcome! 🚀
 
 ---
