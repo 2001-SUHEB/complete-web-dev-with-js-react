@@ -24,4 +24,4 @@ Feel free to open issues or submit pull requests to improve this repo. Contribut
 
 ---
 
-Happy Coding! 🎨
+Happy Coding! 🎨.
