@@ -1,0 +1,65 @@
+/* App Container */
+.app-container {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Header */
+  header h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Button Styling */
+  .fetch-button {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .fetch-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Loading and Error Text */
+  .loading-text {
+    font-size: 1rem;
+    color: #007bff;
+    margin: 10px 0;
+  }
+  
+  .error-text {
+    font-size: 1rem;
+    color: red;
+    margin: 10px 0;
+  }
+  
+  /* User List */
+  .user-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+  }
+  
+  .user-item {
+    font-size: 1rem;
+    color: #333;
+    background-color: #e9ecef;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px 0;
+  }
+  
