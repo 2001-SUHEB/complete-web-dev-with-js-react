@@ -43,3 +43,44 @@ git push origin <branch name> // git push <remote-name> <branch name> //git push
 
 /////////////////////////////
 
+git diff 
+
+git diff <branch name>
+
+git reset <file name>  or git reset .
+
+git reset --soft <commit>
+
+git reset --hard <commit>
+
+git stash
+
+git stash list
+
+git pop
+
+git stash drop
+
+//////////////////////////////
+
+git tag
+
+git tag <tag name>
+
+git tag -a <tag name> -m "<message>"
+
+git push <remote-name> tag
+
+git tag -d <tag name>
+
+
+////////////////////////////////////////
+
+git config --global user.name "<name>"
+
+git config --global user.email "<email>"
+
+git config --list
+
+////////////////////////////////////////
+
